@@ -3,9 +3,21 @@ package bj.highfive.springbootdemo;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+@Entity
 public class Album {
-   
-        private String id;
+   @Id
+   @GeneratedValue(strategy = GenerationType.AUTO)
+        private Long id;
+        public Long getId() {
+    return id;
+}
+public void setId(Long id) {
+    this.id = id;
+}
         private String ref;
         private String name;
         private String title;
@@ -15,9 +27,10 @@ public class Album {
         private String url;
         private List<String> tags;
         private String like;
+
         public Album(String id, String ref, String name, String title, String description, int duration, String status,
                 String url, List<String> tags, String like) {
-            this.id = id;
+          
             this.ref = ref;
             this.name = name;
             this.title = title;
@@ -30,12 +43,7 @@ public class Album {
         }
         public Album(String string, String string2, String string3, String string4, String string5, int i, boolean b) {
         }
-        public String getId() {
-            return id;
-        }
-        public void setId(String id) {
-            this.id = id;
-        }
+     
         public String getRef() {
             return ref;
         }
